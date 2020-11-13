@@ -22,7 +22,6 @@ public class FileService {
 	@Autowired
 	RestTemplate restTemplate;
 
-
 	public void uploadFile(MultipartFile file) {
 		try {
 			moveTheFileToTheDirectory(file, getTheTempFolderDirectory());
