@@ -22,12 +22,17 @@ public class FileService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	public void uploadFile(MultipartFile file) {
+	public String uploadFile(MultipartFile file) {
+		String path = getTheTempFolderDirectory();
 		try {
-			moveTheFileToTheDirectory(file, getTheTempFolderDirectory());
+			moveTheFileToTheDirectory(file, path);
 		} catch (Exception e) {
 			catchException(e, file);
 		}
+		return path+file.getOriginalFilename();
+		
+
+		
 	}
 
 	private void moveTheFileToTheDirectory(MultipartFile file, String uploadDir) throws IOException {
