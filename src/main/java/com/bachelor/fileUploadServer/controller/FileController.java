@@ -19,16 +19,13 @@ public class FileController {
 
 	@PostMapping("/uploadFile")
 	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
-		System.out.println("Hello from the upload ");
+		System.out.println("Done ");
 		String path = fileService.uploadFile(file);
 		return new ResponseEntity<String>(path, HttpStatus.OK);
 	}
-	
-	
-
+		
 	@PostMapping("/uploadFiles")
 	public String uploadFiles(@RequestParam("files") MultipartFile[] files) {
-
 		Arrays.asList(files).stream().forEach(file -> fileService.uploadFile(file));
 		return "Done";
 	}

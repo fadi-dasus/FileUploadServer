@@ -19,7 +19,6 @@ public class ResponseErrorHandler  extends DefaultResponseErrorHandler {
 	  public void handleError(ClientHttpResponse response) throws IOException {
 		  String statusText = response.getStatusText();
 			HttpHeaders headers = response.getHeaders();
-		
 		  logger.error(statusText,headers,"error while calling the api ");
 				  }
 	}

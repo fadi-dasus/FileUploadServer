@@ -27,7 +27,7 @@ public class FileService {
 		try {
 			moveTheFileToTheDirectory(file, path);
 		} catch (Exception e) {
-			catchException(e, file);
+			exceptionHandler(e, file);
 		}
 		return path+file.getOriginalFilename();
 		
@@ -45,7 +45,7 @@ public class FileService {
 		return response.getBody();
 	}
 
-	private void catchException(Exception e, MultipartFile file) {
+	private void exceptionHandler(Exception e, MultipartFile file) {
 		e.printStackTrace();
 		throw new FileStorageException(
 				"Could not store the file " + file.getOriginalFilename() + ". Please try again!");
